@@ -4,10 +4,7 @@ import java.util.Queue;
 
 public class BinaryTree<T extends Comparable<T>> {
 
-	private static final int Node = 0;
-	private static final int T = 0;
 	private Node<T> head;
-	private int LinkedList;
 	
 	BinaryTree() {
 		head = null;
