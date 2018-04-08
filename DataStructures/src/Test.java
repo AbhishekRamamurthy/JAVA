@@ -31,5 +31,8 @@ public class Test {
 		head = objB.getHead();
 		System.out.println("Tree After Balance Display");
 		objB.levelOrderDisplay();
+		head = objB.getHead();
+		head = objB.leastCommonAncestor(head, 2, 4);
+		System.out.println("Common Ancestor = "+ head.data);
 	}
 }

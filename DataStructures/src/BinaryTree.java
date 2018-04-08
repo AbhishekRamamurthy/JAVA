@@ -100,6 +100,24 @@ public class BinaryTree<T extends Comparable<T>> {
 		inOrder(head.right,list);
 	}
 	
+	public Node<T> leastCommonAncestor(Node<T> head, T x, T y) {
+		
+		if(head == null)
+			return null;
+		
+		if(head.data.compareTo(x) == 0 || head.data.compareTo(y) == 0) 
+			return head;
+		
+		Node<T> left = leastCommonAncestor(head.left,x,y);
+		//System.out.println(left.data);
+		Node<T> right = leastCommonAncestor(head.right,x,y);
+		
+		if(left != null && right != null)
+			return head;
+		
+		return left != null ? left : right;
+	}
+	
 	public void display(Node<T> head) {
 		if(head == null)
 			return;
