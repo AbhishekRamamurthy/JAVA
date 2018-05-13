@@ -6,7 +6,7 @@
 2) Spring5
 	a) Webapp demonstrating Spring MVC, demonstrating dependency injection using XML, Annotations and JAVA Classes
 
-3) Hibernate5
+3) Hibernate5: With MySQL
 	a) Database application demonstrating: 
 		(i) OnetoOne bi-directional, uni-directions
 		(ii) OnetoMany and ManytoOne
