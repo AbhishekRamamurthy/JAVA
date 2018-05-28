@@ -20,7 +20,8 @@ Examples of Java data structure implementation and some examples of Java webapp 
 ## Customer Tracker (CRM)
 	a) End to End application demonstrating usage of Spring and Hibernate
 	b) Database Type: Relational (MySQL)
-	c) Application currently supports add, delete, update and search for a customer.
+	c) Application currently supports add, delete, update and search for a customer. 
+	d) Logging Aspects using method level aspects of Spring
 	
 	Screen shots are attached in CustomerTracker directory
 
