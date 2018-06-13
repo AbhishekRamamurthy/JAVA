@@ -1,4 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 
@@ -27,12 +29,22 @@
 	
 		<div id="content">
 		
-			<!-- put new button: Add Customer -->
+			<p>
+				User: <security:authentication property="principal.username" />, Role(s): <security:authentication property="principal.authorities" />
+			</p>
 		
-			<input type="button" value="Add Customer"
-				   onclick="window.location.href='showFormForAdd'; return false;"
-				   class="add-button"
-			/>
+
+			<security:authorize access="hasAnyRole('MANAGER', 'ADMIN')">
+			
+				<!-- put new button: Add Customer -->
+			
+				<input type="button" value="Add Customer"
+					   onclick="window.location.href='showFormForAdd'; return false;"
+					   class="add-button"
+				/>
+			
+			</security:authorize>
+	
 		
 			<!--  add our html table here -->
 		
@@ -41,7 +53,14 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Email</th>
-					<th>Action</th>
+					
+					<%-- Only show "Action" column for managers or admin --%>
+					<security:authorize access="hasAnyRole('MANAGER', 'ADMIN')">
+					
+						<th>Action</th>
+					
+					</security:authorize>
+					
 				</tr>
 				
 				<!-- loop over and print our customers -->
@@ -61,15 +80,23 @@
 						<td> ${tempCustomer.firstName} </td>
 						<td> ${tempCustomer.lastName} </td>
 						<td> ${tempCustomer.email} </td>
+
+						<security:authorize access="hasAnyRole('MANAGER', 'ADMIN')">
 						
-						<td>
-							<!-- display the update link -->
-							<a href="${updateLink}">Update</a>
-							|
-							<a href="${deleteLink}"
-							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
-						</td>
-						
+							<td>
+								<security:authorize access="hasAnyRole('MANAGER', 'ADMIN')">
+									<!-- display the update link -->
+									<a href="${updateLink}">Update</a>
+								</security:authorize>
+	
+								<security:authorize access="hasAnyRole('ADMIN')">
+									<a href="${deleteLink}"
+									   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+								</security:authorize>
+							</td>
+
+						</security:authorize>
+												
 					</tr>
 				
 				</c:forEach>
@@ -80,11 +107,19 @@
 	
 	</div>
 	
+	<p></p>
+		
+	<!-- Add a logout button -->
+	<form:form action="${pageContext.request.contextPath}/logout" 
+			   method="POST">
+	
+		<input type="submit" value="Logout" class="add-button" />
+	
+	</form:form>
 
 </body>
 
 </html>
-
 
 
 
