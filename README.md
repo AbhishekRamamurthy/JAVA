@@ -33,6 +33,22 @@ Examples of Java data structure implementation and some examples of Java webapp 
 	b) 5 End-Points for get all, get by id, add, update and delete delete customers
 	c) Secure endpoints, i.e. only authenticated users have view access.
 	
+	EndPoints:
+	get:
+		GET: /api/customers
+		GET: /api/Customers/{id}
+	
+	add:
+		POST: /api/customers/
+	     	applicationContext/json
+	
+	update:
+		PUT: /api/customers/{id}
+	     	applicationContext/json
+	
+	delete:
+		DELETE: /api/customers/{id}
+	
 	Build Tool: Maven
 
 
