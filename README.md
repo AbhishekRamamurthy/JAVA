@@ -25,12 +25,15 @@ Examples of Java data structure implementation and some examples of Java webapp 
 	e) Login mechanism using spring http security
 	f) Role based user view	
 	
+	Build Tool: Maven
 	Screen shots are attached in CustomerTracker directory
 
 ## CustomerTracker (CRM using Spring REST Web Service)
 	a) Web service layer for CRM project using Spring and Hibernate
 	b) 5 End-Points for get all, get by id, add, update and delete delete customers
 	c) Secure endpoints, i.e. only authenticated users have view access.
+	
+	Build Tool: Maven
 
 
 
