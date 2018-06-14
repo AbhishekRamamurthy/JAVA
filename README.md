@@ -17,14 +17,20 @@ Examples of Java data structure implementation and some examples of Java webapp 
 		(iii) ManytoMany 
 	database table relationships and a Java applications to verify the same
 	
-## Customer Tracker (CRM) (maven project)
+## CustomerTracker (CRM using Spring MVC)
 	a) End to End application demonstrating usage of Spring and Hibernate
 	b) Database Type: Relational (MySQL)
 	c) Application currently supports add, delete, update and search for a customer. 
 	d) Logging Aspects using method level aspects of Spring
 	e) Login mechanism using spring http security
-	f) Role based user view
+	f) Role based user view	
 	
 	Screen shots are attached in CustomerTracker directory
+
+## CustomerTracker (CRM using Spring REST Web Service)
+	a) Web service layer for CRM project using Spring and Hibernate
+	b) 5 End-Points for get all, get by id, add, update and delete delete customers
+	c) Secure endpoints, i.e. only authenticated users have view access.
+
 
 
