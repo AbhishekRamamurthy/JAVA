@@ -2,6 +2,8 @@
 
 Examples of Java data structure implementation and some examples of Java webapp and database connection using Sping and Hibernate
 
+# IDE: Eclipse
+
 ## Data Structure Implementations
 	a) LinkedList
 	b) BinaryTree
